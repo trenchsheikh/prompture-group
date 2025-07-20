@@ -22,7 +22,8 @@ import {
   Users,
   TrendingUp,
   MessageCircle,
-  ChevronUp
+  ChevronUp,
+  ArrowRight
 } from 'lucide-react'
 
 // Animation utilities
@@ -147,6 +148,66 @@ function App() {
     'Central London', 'North London', 'South London', 'East London',
     'West London', 'South East London', 'South West London', 
     'Harrow', 'Twickenham', 'Slough'
+  ]
+
+  // Enhanced services data with icons
+  const services = [
+    {
+      id: 'plumbing',
+      title: 'Plumbing',
+      icon: Droplets,
+      description: 'Efficient and reliable plumbing solutions for homes and businesses. From emergency leak repairs to complete installations, our certified plumbers deliver quality workmanship.',
+      features: ['Emergency Leak Repairs', 'Pipe Installation', 'Drain Unblocking', 'Water Heater Service'],
+      image: '/plumber.png'
+    },
+    {
+      id: 'heating',
+      title: 'Heating',
+      icon: Flame,
+      description: 'Stay warm with our expert heating services. We install, repair, and maintain central heating systems of all types with precision and care.',
+      features: ['Boiler Installation', 'Central Heating', 'Radiator Repair', 'System Maintenance'],
+      image: '/heating.png'
+    },
+    {
+      id: 'gas',
+      title: 'Gas Engineering',
+      icon: Settings,
+      description: 'Certified gas engineers delivering safe and compliant services—from boiler installations to comprehensive gas safety checks.',
+      features: ['Gas Safety Checks', 'Boiler Servicing', 'Gas Appliance Installation', 'Emergency Gas Repairs'],
+      image: '/gas.png'
+    },
+    {
+      id: 'tiling',
+      title: 'Tiling',
+      icon: Bug,
+      description: 'Professional wall and floor tiling with a high-quality finish. Perfect for kitchens, bathrooms, and complete renovations.',
+      features: ['Bathroom Tiling', 'Kitchen Backsplashes', 'Floor Installation', 'Waterproofing'],
+      image: '/tiling.png'
+    },
+    {
+      id: 'electrical',
+      title: 'Electrical',
+      icon: Zap,
+      description: 'From full rewires to socket installations, our qualified electricians handle all domestic and commercial electrical work safely.',
+      features: ['Rewiring', 'Socket Installation', 'Lighting Design', 'Safety Inspections'],
+      image: '/electrical.png'
+    },
+    {
+      id: 'bathroom-kitchen',
+      title: 'Bathroom & Kitchen Fit-Out',
+      icon: Wrench,
+      description: 'End-to-end refurbishment services. Modern, functional, and beautifully finished spaces tailored to your style and needs.',
+      features: ['Complete Renovations', 'Design Consultation', 'Project Management', 'Quality Finishes'],
+      image: '/kitchen.png'
+    },
+    {
+      id: 'painting',
+      title: 'Painting & Decorating',
+      icon: Search,
+      description: 'Interior and exterior painting with precision. We bring fresh life to your space with clean finishes and lasting results.',
+      features: ['Interior Painting', 'Exterior Coating', 'Wallpaper Hanging', 'Surface Preparation'],
+      image: '/painter.png'
+    }
   ]
 
   const CallButton = ({ className = "", size = "default" }) => {
@@ -491,9 +552,10 @@ function App() {
         </div>
       </section>
 
-      {/* Services Section with Alternating Layout */}
-      <section id="services" className="py-20 bg-gray-50">
+      {/* IMPROVED SERVICES SECTION */}
+      <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto px-4">
+          {/* Section Header */}
           <div className="text-center mb-16">
             <h2 
               data-animate
@@ -501,69 +563,94 @@ function App() {
             >
               Our Expert Services
             </h2>
+            <p 
+              data-animate
+              className="animate-fade-in-up animate-delay-200 text-xl text-gray-600 max-w-3xl mx-auto"
+            >
+              Professional property services delivered with precision and care
+            </p>
           </div>
-          <div className="max-w-5xl mx-auto space-y-16">
-            {/* Plumbing */}
-            <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in-left animate-in">
-              <img src="https://images.unsplash.com/photo-1503389152951-9c3d0c6b7a2a?auto=format&fit=crop&w=400&q=80" alt="Plumbing" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
-              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
-                <h3 className="text-2xl font-bold text-blue-700 mb-2">Plumbing</h3>
-                <p className="text-gray-700 text-lg">Efficient and reliable plumbing solutions for homes and businesses. From leaks to installations, we've got it covered.</p>
-              </div>
-            </div>
-            {/* Heating */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 animate-fade-in-right animate-in">
-              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Heating" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
-              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
-                <h3 className="text-2xl font-bold text-blue-700 mb-2">Heating</h3>
-                <p className="text-gray-700 text-lg">Stay warm with our expert heating services. We install, repair, and maintain central heating systems of all types.</p>
-              </div>
-            </div>
-            {/* Gas Engineering */}
-            <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in-left animate-in">
-              <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Gas Engineering" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
-              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
-                <h3 className="text-2xl font-bold text-blue-700 mb-2">Gas Engineering</h3>
-                <p className="text-gray-700 text-lg">Certified gas engineers delivering safe and compliant services—from boiler installations to gas safety checks.</p>
-              </div>
-            </div>
-            {/* Tiling */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 animate-fade-in-right animate-in">
-              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Tiling" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
-              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
-                <h3 className="text-2xl font-bold text-blue-700 mb-2">Tiling</h3>
-                <p className="text-gray-700 text-lg">Professional wall and floor tiling with a high-quality finish. Ideal for kitchens, bathrooms, and renovations.</p>
-              </div>
-            </div>
-            {/* Electrical */}
-            <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in-left animate-in">
-              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Electrical" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
-              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
-                <h3 className="text-2xl font-bold text-blue-700 mb-2">Electrical</h3>
-                <p className="text-gray-700 text-lg">From full rewires to socket installations, our qualified electricians handle all domestic and commercial work.</p>
-              </div>
-            </div>
-            {/* Bathroom & Kitchen Fit-Out */}
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 animate-fade-in-right animate-in">
-              <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80" alt="Bathroom & Kitchen Fit-Out" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
-              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
-                <h3 className="text-2xl font-bold text-blue-700 mb-2">Bathroom & Kitchen Fit-Out</h3>
-                <p className="text-gray-700 text-lg">End-to-end refurbishment services. Modern, functional, and beautifully finished bathrooms and kitchens tailored to your style.</p>
-              </div>
-            </div>
-            {/* Painting & Decorating */}
-            <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in-left animate-in">
-              <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Painting & Decorating" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
-              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
-                <h3 className="text-2xl font-bold text-blue-700 mb-2">Painting & Decorating</h3>
-                <p className="text-gray-700 text-lg">Interior and exterior painting with precision. We bring fresh life to your space with clean finishes and lasting results.</p>
-              </div>
-            </div>
+
+          {/* Services Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+            {services.map((service, index) => {
+              const IconComponent = service.icon
+              return (
+                <div 
+                  key={service.id}
+                  data-animate
+                  className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden hover:scale-[1.02] animate-fade-in-up animate-delay-${(index + 1) * 100}`}
+                >
+                  {/* Card Content */}
+                  <div className="flex flex-col md:flex-row h-full">
+                    {/* Image Section */}
+                    <div className="relative md:w-2/5 h-48 md:h-auto overflow-hidden">
+                      <img 
+                        src={service.image} 
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-600/40 to-transparent"></div>
+                      
+                      {/* Icon Overlay */}
+                      <div className="absolute top-4 left-4">
+                        <div className="w-12 h-12 bg-white/90 backdrop-blur-sm rounded-xl flex items-center justify-center transform transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+                          <IconComponent className="w-6 h-6 text-blue-600" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="flex-1 p-6 md:p-8 flex flex-col justify-between">
+                      {/* Title and Description */}
+                      <div className="mb-6">
+                        <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                          {service.title}
+                        </h3>
+                        <p className="text-gray-600 text-base leading-relaxed mb-4">
+                          {service.description}
+                        </p>
+                      </div>
+
+                      {/* Features List */}
+                      <div className="mb-6">
+                        <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                          Key Services
+                        </h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                          {service.features.map((feature, featureIndex) => (
+                            <div 
+                              key={featureIndex}
+                              className="flex items-center space-x-2 text-sm text-gray-600"
+                            >
+                              <div className="w-1.5 h-1.5 bg-blue-500 rounded-full flex-shrink-0"></div>
+                              <span>{feature}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* CTA Button */}
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <span className="text-sm font-medium text-gray-500">
+                          Emergency Service Available
+                        </span>
+                        <button className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group/btn">
+                          <span className="text-sm">Learn More</span>
+                          <ArrowRight className="w-4 h-4 transform transition-transform duration-300 group-hover/btn:translate-x-1" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
-      {/* About Section with Image */}
+      {/* Why Choose Prompture Group Section */}
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -575,7 +662,6 @@ function App() {
                 <p className="text-lg text-gray-600 mb-8">
                   With years of experience serving London and the South East, we've built our reputation on reliability, quality, and exceptional customer service. Our team of certified professionals is equipped to handle any property emergency with speed and precision.
                 </p>
-                
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4 hover-lift">
                     <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -586,7 +672,6 @@ function App() {
                       <p className="text-gray-600">All our technicians are fully qualified and certified in their respective trades.</p>
                     </div>
                   </div>
-                  
                   <div className="flex items-start space-x-4 hover-lift">
                     <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Shield className="w-6 h-6 text-blue-600" />
@@ -596,7 +681,6 @@ function App() {
                       <p className="text-gray-600">Complete peace of mind with comprehensive insurance coverage.</p>
                     </div>
                   </div>
-                  
                   <div className="flex items-start space-x-4 hover-lift">
                     <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Star className="w-6 h-6 text-yellow-600" />
@@ -608,14 +692,13 @@ function App() {
                   </div>
                 </div>
               </div>
-              
               <div data-animate className="animate-fade-in-right relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                  alt="Professional team"
-                  className="w-full h-96 object-cover rounded-2xl shadow-lg hover-lift"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-600/80 to-transparent rounded-2xl"></div>
+                <div 
+                  className="w-full h-96 rounded-2xl shadow-lg hover-lift bg-cover bg-center relative"
+                  style={{ backgroundImage: `url('/emergency.png')` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-blue-600/80 to-transparent rounded-2xl"></div>
+                </div>
                 <div className="absolute bottom-8 left-8 right-8">
                   <div className="bg-white/95 backdrop-blur-sm rounded-xl p-6 hover-lift">
                     <h3 className="text-xl font-bold text-gray-800 mb-4">Emergency? Don't Wait!</h3>
@@ -631,15 +714,14 @@ function App() {
         </div>
       </section>
 
-             {/* Coverage Area with Map Background */}
-       <section id="coverage" className="py-20 relative">
-         <div 
-           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
-           style={{
-             backgroundImage: `url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
-           }}
-         ></div>
-        
+      {/* Areas We Cover Section */}
+      <section id="coverage" className="py-20 relative">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+          }}
+        ></div>
         <div className="relative z-10 container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 
@@ -701,7 +783,6 @@ function App() {
                 </div>
               </div>
             </div>
-            
             <div>
               <h4 className="text-lg font-bold mb-6">Our Services</h4>
               <ul className="space-y-3">
@@ -714,7 +795,6 @@ function App() {
                 <li className="text-gray-300">Painting & Decorating</li>
               </ul>
             </div>
-            
             <div>
               <h4 className="text-lg font-bold mb-6">Coverage Areas</h4>
               <ul className="space-y-2">
@@ -723,7 +803,6 @@ function App() {
                 ))}
               </ul>
             </div>
-            
             <div>
               <h4 className="text-lg font-bold mb-6">Contact Info</h4>
               <div className="space-y-4">
@@ -742,7 +821,6 @@ function App() {
               </div>
             </div>
           </div>
-          
           <div className="border-t border-gray-800 mt-12 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-400 mb-4 md:mb-0">
@@ -756,119 +834,6 @@ function App() {
           </div>
         </div>
       </footer>
-
-      {/* Fixed Action Buttons */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
-        {/* WhatsApp Button */}
-        <a
-          href="https://wa.me/447XXXXXXXXX" // Replace with your WhatsApp number
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group"
-          title="Chat on WhatsApp"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
-            fill="currentColor"
-            className={`w-10 h-10 text-white ${isScrolling ? 'animate-bounce-smooth' : ''}`}
-          >
-            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.832 4.584 2.236 6.393L4 29l7.824-2.05C13.41 27.633 14.686 28 16 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.13 0-2.238-.188-3.287-.558l-.235-.08-4.65 1.22 1.24-4.527-.153-.236C7.188 18.238 7 17.13 7 16c0-4.963 4.037-9 9-9s9 4.037 9 9-4.037 9-9 9zm5.07-6.29c-.276-.138-1.633-.805-1.886-.897-.253-.092-.437-.138-.62.138-.184.276-.713.897-.874 1.082-.161.184-.322.207-.598.069-.276-.138-1.166-.429-2.222-1.366-.822-.732-1.377-1.635-1.54-1.91-.161-.276-.017-.425.122-.563.125-.124.276-.322.414-.483.138-.161.184-.276.276-.46.092-.184.046-.345-.023-.483-.069-.138-.62-1.497-.849-2.052-.224-.54-.453-.466-.62-.475l-.528-.009c-.161 0-.46.069-.701.322-.241.253-.92.899-.92 2.192 0 1.293.943 2.543 1.074 2.72.131.184 1.857 2.838 4.504 3.866.63.217 1.12.346 1.503.443.632.161 1.208.138 1.663.084.508-.06 1.633-.667 1.863-1.312.23-.644.23-1.196.161-1.312-.069-.115-.253-.184-.529-.322z"/>
-          </svg>
-        </a>
-        {/* Back to Top Button */}
-        {showBackToTop && (
-          <button
-            onClick={scrollToTop}
-            className="w-14 h-14 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-fade-in-up"
-            title="Back to top"
-          >
-            <ChevronUp className="w-7 h-7 text-white" />
-          </button>
-        )}
-      </div>
-
-      {/* Custom CSS for animations */}
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(60px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeInLeft {
-          from {
-            opacity: 0;
-            transform: translateX(-60px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes fadeInRight {
-          from {
-            opacity: 0;
-            transform: translateX(60px);
-          }
-          to {
-            opacity: 1;
-            transform: translateX(0);
-          }
-        }
-
-        @keyframes scaleIn {
-          from {
-            opacity: 0;
-            transform: scale(0.8);
-          }
-          to {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        .animate-fade-in-up {
-          animation: fadeInUp 0.6s ease-out;
-        }
-
-        .animate-fade-in-left {
-          animation: fadeInLeft 0.6s ease-out;
-        }
-
-        .animate-fade-in-right {
-          animation: fadeInRight 0.6s ease-out;
-        }
-
-        .animate-scale-in {
-          animation: scaleIn 0.5s ease-out;
-        }
-
-        .animate-delay-100 { animation-delay: 0.1s; }
-        .animate-delay-200 { animation-delay: 0.2s; }
-        .animate-delay-300 { animation-delay: 0.3s; }
-        .animate-delay-400 { animation-delay: 0.4s; }
-        .animate-delay-500 { animation-delay: 0.5s; }
-        .animate-delay-600 { animation-delay: 0.6s; }
-
-        .hover-lift {
-          transition: transform 0.3s ease;
-        }
-
-        .hover-lift:hover {
-          transform: translateY(-5px);
-        }
-
-        .animate-in {
-          animation-play-state: running;
-        }
-      `}</style>
     </div>
   )
 }
