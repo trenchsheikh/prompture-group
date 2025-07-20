@@ -203,17 +203,24 @@ function App() {
   ]
 
   const CallButton = ({ className = "", size = "default" }) => {
-    const baseClasses = "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2"
+    const baseClasses = "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2 relative"
     const sizeClasses = size === "large" ? "py-4 px-8 text-lg" : "py-3 px-6 text-base"
     
     return (
-      <a 
-        href="tel:020XXXXX" 
-        className={`${baseClasses} ${sizeClasses} ${className}`}
-      >
-        <Phone className="w-5 h-5" />
-        Call Now
-      </a>
+      <div className={`relative ${className}`}>
+        {/* Gradient glowing border */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-800 to-black rounded-lg blur-sm opacity-60 animate-pulse"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-gray-700 to-black rounded-lg blur-[2px] opacity-40"></div>
+        
+        {/* Button content */}
+        <a 
+          href="tel:020XXXXX" 
+          className={`${baseClasses} ${sizeClasses} relative z-10`}
+        >
+          <Phone className="w-5 h-5" />
+          Call Now
+        </a>
+      </div>
     )
   }
 
