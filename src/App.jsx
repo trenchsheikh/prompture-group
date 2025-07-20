@@ -181,11 +181,6 @@ function App() {
       description: 'Available around the clock, 365 days a year'
     },
     {
-      icon: Shield,
-      title: '12 Month Guarantee',
-      description: 'Complete confidence with our comprehensive warranty'
-    },
-    {
       icon: Star,
       title: 'Unbeatable Prices',
       description: 'Competitive rates with complete transparency'
@@ -277,7 +272,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Emergency Banner */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white py-3">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-blue-600 to-white text-white py-3">
         <div className="container mx-auto px-4 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between">
           <p className="text-sm font-semibold animate-pulse mb-2 md:mb-0">
             EMERGENCY SERVICE AVAILABLE 24/7 - NO HIDDEN CHARGES
@@ -401,17 +396,22 @@ function App() {
             <h1 
               className="animate-fade-in-up hero-animate text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
             >
-              London's <span className="text-blue-200">Premier</span> Emergency Property Maintenance
+              London's <span className="text-blue-200">Premier</span> Property Services
             </h1>
             <p 
-              className="animate-fade-in-up hero-animate animate-delay-200 text-xl md:text-2xl text-blue-100 mb-8"
+              className="animate-fade-in-up hero-animate animate-delay-200 text-xl md:text-2xl text-blue-100 mb-4"
             >
-              Guaranteed <span className="font-semibold text-white">1-2 hour response</span> time for all emergencies
+              Experts in Projects of All Sizes – Domestic and Commercial
+            </p>
+            <p 
+              className="animate-fade-in-up hero-animate animate-delay-300 text-lg text-blue-100 mb-2 max-w-3xl mx-auto"
+            >
+              Prompt, Precise and Professional
             </p>
             <p 
               className="animate-fade-in-up hero-animate animate-delay-400 text-lg text-blue-100 mb-12 max-w-3xl mx-auto"
             >
-              Professional, qualified, and passionate team serving homeowners, businesses, and landlords across London and the South East with unmatched reliability.
+              From small repairs to large-scale renovations, we handle every project with expert care and efficiency.
             </p>
             
             <div 
@@ -480,7 +480,7 @@ function App() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
             {features.map((feature, index) => {
               const IconComponent = feature.icon
               return (
