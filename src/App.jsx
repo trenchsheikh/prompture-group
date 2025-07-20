@@ -510,7 +510,7 @@ function App() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
+            backgroundImage: `url('/Promethu.png')`
           }}
         ></div>
         <div className="absolute inset-0 bg-blue-900/85"></div>
@@ -636,10 +636,14 @@ function App() {
                         <span className="text-sm font-medium text-gray-500">
                           Emergency Service Available
                         </span>
-                        <button className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group/btn">
+                        <a
+                          href="#about"
+                          onClick={e => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }}
+                          className="flex items-center space-x-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300 group/btn cursor-pointer"
+                        >
                           <span className="text-sm">Learn More</span>
                           <ArrowRight className="w-4 h-4 transform transition-transform duration-300 group-hover/btn:translate-x-1" />
-                        </button>
+                        </a>
                       </div>
                     </div>
                   </div>
