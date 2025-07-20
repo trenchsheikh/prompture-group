@@ -102,73 +102,6 @@ function App() {
     })
   }, [])
 
-  const services = [
-    { 
-      id: 'boiler-repairs', 
-      name: 'Boiler Repairs', 
-      icon: Flame,
-      description: 'Expert boiler repair services for all major brands. Fast diagnosis and reliable fixes.',
-      features: ['24/7 Emergency Service', 'All Major Brands', 'Same Day Repairs'],
-      image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    { 
-      id: 'boiler-installation', 
-      name: 'Boiler Installation', 
-      icon: Settings,
-      description: 'Professional boiler installation with full warranty and aftercare support.',
-      features: ['Energy Efficient Models', 'Professional Installation', '12 Month Guarantee'],
-      image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    { 
-      id: 'plumbing', 
-      name: 'Plumbing Services', 
-      icon: Wrench,
-      description: 'Complete plumbing solutions for residential and commercial properties.',
-      features: ['Leak Repairs', 'Pipe Installation', 'Bathroom Fitting'],
-      image: 'https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    { 
-      id: 'drainage', 
-      name: 'Drainage Solutions', 
-      icon: Droplets,
-      description: 'Professional drainage services including unblocking and maintenance.',
-      features: ['Drain Unblocking', 'CCTV Surveys', 'Preventive Maintenance'],
-      image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    { 
-      id: 'leak-detection', 
-      name: 'Leak Detection', 
-      icon: Search,
-      description: 'Advanced leak detection using the latest technology and equipment.',
-      features: ['Non-Invasive Detection', 'Thermal Imaging', 'Quick Resolution'],
-      image: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    { 
-      id: 'locksmiths', 
-      name: 'Locksmith Services', 
-      icon: Lock,
-      description: 'Professional locksmith services for homes and businesses.',
-      features: ['Emergency Lockouts', 'Lock Installation', 'Security Upgrades'],
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    { 
-      id: 'pest-control', 
-      name: 'Pest Control', 
-      icon: Bug,
-      description: 'Comprehensive pest control solutions for all types of infestations.',
-      features: ['Safe Treatments', 'Follow-up Service', 'Prevention Advice'],
-      image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    },
-    { 
-      id: 'electrical', 
-      name: 'Electrical Services', 
-      icon: Zap,
-      description: 'Certified electrical services for installations, repairs, and maintenance.',
-      features: ['Certified Electricians', 'Safety Inspections', 'Smart Home Solutions'],
-      image: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
-    }
-  ]
-
   const features = [
     {
       icon: Clock,
@@ -386,12 +319,10 @@ function App() {
             backgroundImage: `url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
           }}
         ></div>
-        
         {/* Blue Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-blue-700/80"></div>
-        
         {/* Content */}
-        <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="relative z-10 container mx-auto px-4 text-center pb-44 md:pb-40">
           <div className="max-w-4xl mx-auto">
             <h1 
               className="animate-fade-in-up hero-animate text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
@@ -413,9 +344,8 @@ function App() {
             >
               From small repairs to large-scale renovations, we handle every project with expert care and efficiency.
             </p>
-            
             <div 
-              className="animate-fade-in-up hero-animate animate-delay-600 flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="animate-fade-in-up hero-animate animate-delay-600 flex flex-col sm:flex-row gap-4 justify-center items-center mb-8"
             >
               <CallButton size="large" />
               <a 
@@ -425,6 +355,66 @@ function App() {
               >
                 View Our Services
               </a>
+            </div>
+          </div>
+        </div>
+        
+        {/* Trusted Brands Logos Section - Fixed Position at Hero Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 z-20">
+          {/* White background with subtle shadow */}
+          <div className="bg-white/95 backdrop-blur-sm border-t border-gray-200 py-6 md:py-8">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-4">
+                <p className="text-sm md:text-base font-semibold text-gray-600 uppercase tracking-wider">
+                  Trusted by Industry Leaders
+                </p>
+              </div>
+              
+              {/* Logo Grid - Responsive */}
+              <div className="grid grid-cols-3 md:grid-cols-6 gap-4 md:gap-8 items-center justify-items-center max-w-6xl mx-auto">
+                <div className="flex items-center justify-center h-16 md:h-20 w-full">
+                  <img 
+                    src="/gas-safe-register-logo-header-removebg-preview.png" 
+                    alt="Gas Safe Register" 
+                    className="max-h-20 md:max-h-32 max-w-full object-contain filter hover:scale-110 transition-transform duration-300" 
+                  />
+                </div>
+                <div className="flex items-center justify-center h-16 md:h-20 w-full">
+                  <img 
+                    src="/Vaillant-Large-Square-removebg-preview.png" 
+                    alt="Vaillant" 
+                    className="max-h-20 md:max-h-32 max-w-full object-contain filter hover:scale-110 transition-transform duration-300" 
+                  />
+                </div>
+                <div className="flex items-center justify-center h-16 md:h-20 w-full">
+                  <img 
+                    src="/Worcester-Bosch-logo-square-removebg-preview.png" 
+                    alt="Worcester Bosch" 
+                    className="max-h-20 md:max-h-32 max-w-full object-contain filter hover:scale-110 transition-transform duration-300" 
+                  />
+                </div>
+                <div className="flex items-center justify-center h-16 md:h-20 w-full">
+                  <img 
+                    src="/Untitled_design__48_-removebg-preview.png" 
+                    alt="NFRC" 
+                    className="max-h-20 md:max-h-32 max-w-full object-contain filter hover:scale-110 transition-transform duration-300" 
+                  />
+                </div>
+                <div className="flex items-center justify-center h-16 md:h-20 w-full">
+                  <img 
+                    src="/__Plumbing_Efficient_and_reliable_plumbing_solutions_for_homes_and_businesses._From_leaks_to_installations__we_ve_got_it_covered._Read_more_______Heating_Stay_warm_with_our_expert_heating_servic-remov.png" 
+                    alt="SafeContractor" 
+                    className="max-h-20 md:max-h-32 max-w-full object-contain filter hover:scale-110 transition-transform duration-300" 
+                  />
+                </div>
+                <div className="flex items-center justify-center h-16 md:h-20 w-full">
+                  <img 
+                    src="/__Plumbing_Efficient_and_reliable_plumbing_solutions_for_homes_and_businesses._From_leaks_to_installations__we_ve_got_it_covered._Read_more_______Heating_Stay_warm_with_our_expert_heating_servic__1_-r.png" 
+                    alt="CHAS" 
+                    className="max-h-20 md:max-h-32 max-w-full object-contain filter hover:scale-110 transition-transform duration-300" 
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -511,63 +501,64 @@ function App() {
             >
               Our Expert Services
             </h2>
-            <p 
-              data-animate
-              className="animate-fade-in-up animate-delay-200 text-xl text-gray-600 max-w-3xl mx-auto"
-            >
-              Comprehensive property maintenance solutions delivered by certified professionals
-            </p>
           </div>
-          
-          <div className="space-y-20">
-            {services.map((service, index) => {
-              const IconComponent = service.icon
-              const isEven = index % 2 === 0
-              
-              return (
-                <div 
-                  key={service.id} 
-                  data-animate
-                  className={`animate-fade-in-up animate-delay-${(index + 1) * 100} flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}
-                  style={{ opacity: 1, transform: 'translateY(0)' }}
-                >
-                  {/* Image */}
-                  <div className="lg:w-1/2">
-                    <div className="relative group hover-lift">
-                      <img 
-                        src={service.image} 
-                        alt={service.name}
-                        className="w-full h-96 object-cover rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="lg:w-1/2 space-y-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center">
-                        <IconComponent className="w-8 h-8 text-white" />
-                      </div>
-                      <h3 className="text-3xl font-bold text-gray-800">{service.name}</h3>
-                    </div>
-                    
-                    <p className="text-lg text-gray-600 leading-relaxed">{service.description}</p>
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-2 bg-white p-3 rounded-lg shadow-sm hover-lift">
-                          <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                          <span className="text-sm font-medium text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                    
-                    <CallButton />
-                  </div>
-                </div>
-              )
-            })}
+          <div className="max-w-5xl mx-auto space-y-16">
+            {/* Plumbing */}
+            <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in-left animate-in">
+              <img src="https://images.unsplash.com/photo-1503389152951-9c3d0c6b7a2a?auto=format&fit=crop&w=400&q=80" alt="Plumbing" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
+                <h3 className="text-2xl font-bold text-blue-700 mb-2">Plumbing</h3>
+                <p className="text-gray-700 text-lg">Efficient and reliable plumbing solutions for homes and businesses. From leaks to installations, we've got it covered.</p>
+              </div>
+            </div>
+            {/* Heating */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 animate-fade-in-right animate-in">
+              <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Heating" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
+                <h3 className="text-2xl font-bold text-blue-700 mb-2">Heating</h3>
+                <p className="text-gray-700 text-lg">Stay warm with our expert heating services. We install, repair, and maintain central heating systems of all types.</p>
+              </div>
+            </div>
+            {/* Gas Engineering */}
+            <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in-left animate-in">
+              <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Gas Engineering" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
+                <h3 className="text-2xl font-bold text-blue-700 mb-2">Gas Engineering</h3>
+                <p className="text-gray-700 text-lg">Certified gas engineers delivering safe and compliant services—from boiler installations to gas safety checks.</p>
+              </div>
+            </div>
+            {/* Tiling */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 animate-fade-in-right animate-in">
+              <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Tiling" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
+                <h3 className="text-2xl font-bold text-blue-700 mb-2">Tiling</h3>
+                <p className="text-gray-700 text-lg">Professional wall and floor tiling with a high-quality finish. Ideal for kitchens, bathrooms, and renovations.</p>
+              </div>
+            </div>
+            {/* Electrical */}
+            <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in-left animate-in">
+              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Electrical" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
+                <h3 className="text-2xl font-bold text-blue-700 mb-2">Electrical</h3>
+                <p className="text-gray-700 text-lg">From full rewires to socket installations, our qualified electricians handle all domestic and commercial work.</p>
+              </div>
+            </div>
+            {/* Bathroom & Kitchen Fit-Out */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 animate-fade-in-right animate-in">
+              <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=400&q=80" alt="Bathroom & Kitchen Fit-Out" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
+                <h3 className="text-2xl font-bold text-blue-700 mb-2">Bathroom & Kitchen Fit-Out</h3>
+                <p className="text-gray-700 text-lg">End-to-end refurbishment services. Modern, functional, and beautifully finished bathrooms and kitchens tailored to your style.</p>
+              </div>
+            </div>
+            {/* Painting & Decorating */}
+            <div className="flex flex-col md:flex-row items-center gap-8 animate-fade-in-left animate-in">
+              <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="Painting & Decorating" className="w-full md:w-64 h-48 object-cover rounded-2xl shadow-lg" />
+              <div className="bg-white rounded-2xl shadow-lg p-8 flex-1 w-full">
+                <h3 className="text-2xl font-bold text-blue-700 mb-2">Painting & Decorating</h3>
+                <p className="text-gray-700 text-lg">Interior and exterior painting with precision. We bring fresh life to your space with clean finishes and lasting results.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -714,13 +705,13 @@ function App() {
             <div>
               <h4 className="text-lg font-bold mb-6">Our Services</h4>
               <ul className="space-y-3">
-                {services.slice(0, 6).map(service => (
-                  <li key={service.id}>
-                    <a href={`#${service.id}`} className="text-gray-300 hover:text-blue-400 transition-colors">
-                      {service.name}
-                    </a>
-                  </li>
-                ))}
+                <li className="text-gray-300">Plumbing</li>
+                <li className="text-gray-300">Heating</li>
+                <li className="text-gray-300">Gas Engineering</li>
+                <li className="text-gray-300">Electrical</li>
+                <li className="text-gray-300">Tiling</li>
+                <li className="text-gray-300">Bathroom & Kitchen Fit-Out</li>
+                <li className="text-gray-300">Painting & Decorating</li>
               </ul>
             </div>
             
@@ -796,6 +787,88 @@ function App() {
           </button>
         )}
       </div>
+
+      {/* Custom CSS for animations */}
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(60px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-60px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(60px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fadeInUp 0.6s ease-out;
+        }
+
+        .animate-fade-in-left {
+          animation: fadeInLeft 0.6s ease-out;
+        }
+
+        .animate-fade-in-right {
+          animation: fadeInRight 0.6s ease-out;
+        }
+
+        .animate-scale-in {
+          animation: scaleIn 0.5s ease-out;
+        }
+
+        .animate-delay-100 { animation-delay: 0.1s; }
+        .animate-delay-200 { animation-delay: 0.2s; }
+        .animate-delay-300 { animation-delay: 0.3s; }
+        .animate-delay-400 { animation-delay: 0.4s; }
+        .animate-delay-500 { animation-delay: 0.5s; }
+        .animate-delay-600 { animation-delay: 0.6s; }
+
+        .hover-lift {
+          transition: transform 0.3s ease;
+        }
+
+        .hover-lift:hover {
+          transform: translateY(-5px);
+        }
+
+        .animate-in {
+          animation-play-state: running;
+        }
+      `}</style>
     </div>
   )
 }
