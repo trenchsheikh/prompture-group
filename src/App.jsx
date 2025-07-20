@@ -209,6 +209,30 @@ function App() {
     )
   }
 
+  const handleNavClick = (sectionId) => {
+    // Close mobile menu
+    setIsMobileMenuOpen(false)
+    
+    // Smooth scroll to section
+    const element = document.getElementById(sectionId)
+    if (element) {
+      // Get actual heights of sticky elements
+      const emergencyBanner = document.querySelector('.sticky.top-0.z-50')
+      const header = document.querySelector('header')
+      
+      const emergencyBannerHeight = emergencyBanner ? emergencyBanner.offsetHeight : 48
+      const headerHeight = header ? header.offsetHeight : 64
+      const extraPadding = 30 // Extra padding to ensure header is fully visible
+      const totalOffset = emergencyBannerHeight + headerHeight + extraPadding
+      const elementPosition = element.offsetTop - totalOffset
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
   return (
     <div className="min-h-screen bg-white">
       {/* Emergency Banner */}
@@ -241,10 +265,34 @@ function App() {
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Home</a>
-              <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Services</a>
-              <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">About</a>
-              <a href="#coverage" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">Coverage</a>
+              <a 
+                href="#home" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer"
+              >
+                Home
+              </a>
+              <a 
+                href="#services" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer"
+              >
+                Services
+              </a>
+              <a 
+                href="#about" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer"
+              >
+                About
+              </a>
+              <a 
+                href="#coverage" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('coverage'); }}
+                className="text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer"
+              >
+                Coverage
+              </a>
               <CallButton />
             </nav>
 
@@ -262,10 +310,34 @@ function App() {
             isMobileMenuOpen ? 'max-h-64 pb-4' : 'max-h-0'
           }`}>
             <div className="border-t border-gray-200 pt-4 space-y-4">
-              <a href="#home" className="block text-gray-700 hover:text-blue-600 transition-colors">Home</a>
-              <a href="#services" className="block text-gray-700 hover:text-blue-600 transition-colors">Services</a>
-              <a href="#about" className="block text-gray-700 hover:text-blue-600 transition-colors">About</a>
-              <a href="#coverage" className="block text-gray-700 hover:text-blue-600 transition-colors">Coverage</a>
+              <a 
+                href="#home" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('home'); }}
+                className="block text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
+              >
+                Home
+              </a>
+              <a 
+                href="#services" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}
+                className="block text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
+              >
+                Services
+              </a>
+              <a 
+                href="#about" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('about'); }}
+                className="block text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
+              >
+                About
+              </a>
+              <a 
+                href="#coverage" 
+                onClick={(e) => { e.preventDefault(); handleNavClick('coverage'); }}
+                className="block text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
+              >
+                Coverage
+              </a>
               <CallButton className="w-full" />
             </div>
           </div>
@@ -314,7 +386,8 @@ function App() {
               <CallButton size="large" />
               <a 
                 href="#services" 
-                className="py-4 px-8 border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 hover-lift"
+                onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}
+                className="py-4 px-8 border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 hover-lift cursor-pointer"
               >
                 View Our Services
               </a>
