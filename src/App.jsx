@@ -23,7 +23,8 @@ import {
   TrendingUp,
   MessageCircle,
   ChevronUp,
-  ArrowRight
+  ArrowRight,
+  Home
 } from 'lucide-react'
 
 // Animation utilities
@@ -110,9 +111,9 @@ function App() {
       description: 'Rapid emergency response when you need it most'
     },
     {
-      icon: Phone,
-      title: '24/7 Emergency',
-      description: 'Available around the clock, 365 days a year'
+      icon: Home,
+      title: 'Your Home. Our Priority',
+      description: 'We treat every project with the urgency, care, and respect it deserves.'
     },
     {
       icon: Star,
@@ -282,12 +283,12 @@ function App() {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
             <div className="flex items-center space-x-3 cursor-pointer" onClick={scrollToTop}>
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
-                <Wrench className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
+                <img src="/logo.png" alt="Prompture Group Logo" className="w-10 h-10 object-contain" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-gray-800">Prompture Group</h1>
-                <p className="text-xs text-gray-600">London's Emergency Property Experts</p>
+                <p className="text-xs text-gray-600">London’s Trusted Property Maintenance Experts</p>
               </div>
             </div>
             
