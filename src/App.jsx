@@ -75,6 +75,14 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [animatedElements])
 
+  // Trigger hero animations immediately on page load
+  useEffect(() => {
+    const heroElements = document.querySelectorAll('.hero-animate')
+    heroElements.forEach((element) => {
+      element.classList.add('animate-in')
+    })
+  }, [])
+
   const services = [
     { 
       id: 'boiler-repairs', 
@@ -361,27 +369,23 @@ function App() {
         <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
             <h1 
-              data-animate
-              className="animate-fade-in-up text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
+              className="animate-fade-in-up hero-animate text-4xl md:text-6xl font-bold text-white mb-6 leading-tight"
             >
               London's <span className="text-blue-200">Premier</span> Emergency Property Maintenance
             </h1>
             <p 
-              data-animate
-              className="animate-fade-in-up animate-delay-200 text-xl md:text-2xl text-blue-100 mb-8"
+              className="animate-fade-in-up hero-animate animate-delay-200 text-xl md:text-2xl text-blue-100 mb-8"
             >
               Guaranteed <span className="font-semibold text-white">1-2 hour response</span> time for all emergencies
             </p>
             <p 
-              data-animate
-              className="animate-fade-in-up animate-delay-400 text-lg text-blue-100 mb-12 max-w-3xl mx-auto"
+              className="animate-fade-in-up hero-animate animate-delay-400 text-lg text-blue-100 mb-12 max-w-3xl mx-auto"
             >
               Professional, qualified, and passionate team serving homeowners, businesses, and landlords across London and the South East with unmatched reliability.
             </p>
             
             <div 
-              data-animate
-              className="animate-fade-in-up animate-delay-600 flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="animate-fade-in-up hero-animate animate-delay-600 flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
               <CallButton size="large" />
               <a 
