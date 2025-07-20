@@ -82,7 +82,7 @@ function App() {
       icon: Flame,
       description: 'Expert boiler repair services for all major brands. Fast diagnosis and reliable fixes.',
       features: ['24/7 Emergency Service', 'All Major Brands', 'Same Day Repairs'],
-      image: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+      image: '/plumbing-hero.png'
     },
     { 
       id: 'boiler-installation', 
@@ -130,7 +130,7 @@ function App() {
       icon: Bug,
       description: 'Comprehensive pest control solutions for all types of infestations.',
       features: ['Safe Treatments', 'Follow-up Service', 'Prevention Advice'],
-      image: 'https://images.unsplash.com/photo-1584464491033-06628f3a6b7b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+      image: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
     },
     { 
       id: 'electrical', 
