@@ -249,7 +249,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Emergency Banner */}
       <div className="sticky top-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white py-3">
         <div className="container mx-auto px-4 text-center md:text-left">
