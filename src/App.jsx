@@ -251,7 +251,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Emergency Banner */}
-      <div className="sticky top-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white py-3">
+      <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white py-3">
         <div className="container mx-auto px-4 text-center md:text-left">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <p className="text-sm font-semibold animate-pulse mb-2 md:mb-0">
@@ -263,7 +263,7 @@ function App() {
       </div>
 
       {/* Header */}
-      <header className={`sticky top-0 z-40 transition-all duration-300 ${
+      <header className={`fixed top-28 md:top-16 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled ? 'bg-white shadow-lg' : 'bg-white/95 backdrop-blur-sm'
       }`}>
         <div className="container mx-auto px-4">
@@ -308,7 +308,6 @@ function App() {
               >
                 Coverage
               </a>
-              <CallButton />
             </nav>
 
             {/* Mobile Menu Button */}
@@ -360,7 +359,7 @@ function App() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="relative py-20 lg:py-32 overflow-hidden">
+      <section id="home" className="relative py-20 lg:py-32 overflow-hidden mt-44 md:mt-32">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
