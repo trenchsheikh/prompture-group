@@ -680,7 +680,7 @@ function App() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-blue-400" />
-                  <span className="text-xl font-bold">0208 0505 306</span>
+                  <span className="text-xl font-bold">020XXXXX</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-blue-400" />
@@ -718,8 +718,8 @@ function App() {
                   <h5 className="font-semibold mb-2">Address</h5>
                   <p className="text-gray-300">
                     Prompture Group<br />
-                    4 Old Park Ln, London<br />
-                    W1K 1QW
+                    123 Business Street, London<br />
+                    SW1A 1AA
                   </p>
                 </div>
                 <div>
