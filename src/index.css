@@ -137,3 +137,25 @@
     }
   }
 }
+
+@keyframes bounce-smooth {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-10%);
+  }
+  40% {
+    transform: translateY(0);
+  }
+  60% {
+    transform: translateY(-7%);
+  }
+  80% {
+    transform: translateY(0);
+  }
+}
+
+.animate-bounce-smooth {
+  animation: bounce-smooth 1.2s cubic-bezier(0.4,0,0.6,1) infinite;
+}

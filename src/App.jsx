@@ -20,7 +20,9 @@ import {
   X,
   Award,
   Users,
-  TrendingUp
+  TrendingUp,
+  MessageCircle,
+  ChevronUp
 } from 'lucide-react'
 
 // Animation utilities
@@ -52,10 +54,27 @@ function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [animatedElements, setAnimatedElements] = useState(new Set())
+  const [showBackToTop, setShowBackToTop] = useState(false)
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  useEffect(() => {
+    let scrollTimeout;
+    const onScroll = () => {
+      setIsScrolling(true);
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => setIsScrolling(false), 200);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+      setShowBackToTop(window.scrollY > 300)
       
       // Check for elements to animate on scroll
       const elements = document.querySelectorAll('[data-animate]')
@@ -90,7 +109,7 @@ function App() {
       icon: Flame,
       description: 'Expert boiler repair services for all major brands. Fast diagnosis and reliable fixes.',
       features: ['24/7 Emergency Service', 'All Major Brands', 'Same Day Repairs'],
-      image: '/plumbing-hero.png'
+      image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
     },
     { 
       id: 'boiler-installation', 
@@ -248,17 +267,22 @@ function App() {
     }
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       {/* Emergency Banner */}
       <div className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-red-600 to-red-700 text-white py-3">
-        <div className="container mx-auto px-4 text-center md:text-left">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <p className="text-sm font-semibold animate-pulse mb-2 md:mb-0">
-              EMERGENCY SERVICE AVAILABLE 24/7 - NO HIDDEN CHARGES
-            </p>
-            <CallButton className="mx-auto md:mx-0" />
-          </div>
+        <div className="container mx-auto px-4 text-center md:text-left flex flex-col md:flex-row md:items-center md:justify-between">
+          <p className="text-sm font-semibold animate-pulse mb-2 md:mb-0">
+            EMERGENCY SERVICE AVAILABLE 24/7 - NO HIDDEN CHARGES
+          </p>
+          <CallButton className="mx-auto md:mx-0" />
         </div>
       </div>
 
@@ -268,7 +292,7 @@ function App() {
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 cursor-pointer" onClick={scrollToTop}>
               <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
                 <Wrench className="w-6 h-6 text-white" />
               </div>
@@ -364,7 +388,7 @@ function App() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('/plumbing-hero.png')`
+            backgroundImage: `url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')`
           }}
         ></div>
         
@@ -640,7 +664,6 @@ function App() {
               Serving London and the South East with rapid response emergency services
             </p>
           </div>
-          
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
             {areas.map((area, index) => (
               <div 
@@ -653,7 +676,6 @@ function App() {
               </div>
             ))}
           </div>
-          
           <div data-animate className="animate-fade-in-up animate-delay-500 text-center mt-16">
             <CallButton size="large" />
           </div>
@@ -743,6 +765,37 @@ function App() {
           </div>
         </div>
       </footer>
+
+      {/* Fixed Action Buttons */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col space-y-3">
+        {/* WhatsApp Button */}
+        <a
+          href="https://wa.me/447XXXXXXXXX" // Replace with your WhatsApp number
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group"
+          title="Chat on WhatsApp"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            fill="currentColor"
+            className={`w-10 h-10 text-white ${isScrolling ? 'animate-bounce-smooth' : ''}`}
+          >
+            <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.832 4.584 2.236 6.393L4 29l7.824-2.05C13.41 27.633 14.686 28 16 28c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.13 0-2.238-.188-3.287-.558l-.235-.08-4.65 1.22 1.24-4.527-.153-.236C7.188 18.238 7 17.13 7 16c0-4.963 4.037-9 9-9s9 4.037 9 9-4.037 9-9 9zm5.07-6.29c-.276-.138-1.633-.805-1.886-.897-.253-.092-.437-.138-.62.138-.184.276-.713.897-.874 1.082-.161.184-.322.207-.598.069-.276-.138-1.166-.429-2.222-1.366-.822-.732-1.377-1.635-1.54-1.91-.161-.276-.017-.425.122-.563.125-.124.276-.322.414-.483.138-.161.184-.276.276-.46.092-.184.046-.345-.023-.483-.069-.138-.62-1.497-.849-2.052-.224-.54-.453-.466-.62-.475l-.528-.009c-.161 0-.46.069-.701.322-.241.253-.92.899-.92 2.192 0 1.293.943 2.543 1.074 2.72.131.184 1.857 2.838 4.504 3.866.63.217 1.12.346 1.503.443.632.161 1.208.138 1.663.084.508-.06 1.633-.667 1.863-1.312.23-.644.23-1.196.161-1.312-.069-.115-.253-.184-.529-.322z"/>
+          </svg>
+        </a>
+        {/* Back to Top Button */}
+        {showBackToTop && (
+          <button
+            onClick={scrollToTop}
+            className="w-14 h-14 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-fade-in-up"
+            title="Back to top"
+          >
+            <ChevronUp className="w-7 h-7 text-white" />
+          </button>
+        )}
+      </div>
     </div>
   )
 }
