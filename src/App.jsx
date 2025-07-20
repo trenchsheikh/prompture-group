@@ -234,24 +234,19 @@ function App() {
   }
 
   const handleNavClick = (sectionId) => {
-    // Close mobile menu
     setIsMobileMenuOpen(false)
-    
-    // Smooth scroll to section
     const element = document.getElementById(sectionId)
     if (element) {
-      // Get actual heights of sticky elements
-      const emergencyBanner = document.querySelector('.sticky.top-0.z-50')
+      const emergencyBanner = document.querySelector('.fixed.top-0.z-50')
       const header = document.querySelector('header')
-      
-      const emergencyBannerHeight = emergencyBanner ? emergencyBanner.offsetHeight : 48
-      const headerHeight = header ? header.offsetHeight : 64
-      const extraPadding = 30 // Extra padding to ensure header is fully visible
-      const totalOffset = emergencyBannerHeight + headerHeight + extraPadding
-      const elementPosition = element.offsetTop - totalOffset
-      
+      const emergencyBannerHeight = emergencyBanner ? emergencyBanner.offsetHeight : 0
+      const headerHeight = header ? header.offsetHeight : 0
+      const totalOffset = emergencyBannerHeight + headerHeight
+      const elementRect = element.getBoundingClientRect()
+      const scrollY = window.scrollY || window.pageYOffset
+      const targetY = elementRect.top + scrollY - totalOffset
       window.scrollTo({
-        top: elementPosition,
+        top: targetY,
         behavior: 'smooth'
       })
     }
@@ -303,7 +298,7 @@ function App() {
               </a>
               <a 
                 href="#services" 
-                onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}
+                onClick={(e) => { e.preventDefault(); handleNavClick('our-expert-services'); }}
                 className="text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer"
               >
                 Services
@@ -347,7 +342,7 @@ function App() {
               </a>
               <a 
                 href="#services" 
-                onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}
+                onClick={(e) => { e.preventDefault(); handleNavClick('our-expert-services'); }}
                 className="block text-gray-700 hover:text-blue-600 transition-colors cursor-pointer"
               >
                 Services
@@ -412,7 +407,7 @@ function App() {
               <CallButton size="large" />
               <a 
                 href="#services" 
-                onClick={(e) => { e.preventDefault(); handleNavClick('services'); }}
+                onClick={(e) => { e.preventDefault(); handleNavClick('our-expert-services'); }}
                 className="py-4 px-8 border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold rounded-lg transition-all duration-300 transform hover:scale-105 hover-lift cursor-pointer"
               >
                 View Our Services
@@ -559,6 +554,7 @@ function App() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 
+              id="our-expert-services"
               data-animate
               className="animate-fade-in-up text-4xl md:text-5xl font-bold text-gray-800 mb-6"
             >
