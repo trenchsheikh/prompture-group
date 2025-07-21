@@ -237,14 +237,12 @@ function App() {
     setIsMobileMenuOpen(false)
     const element = document.getElementById(sectionId)
     if (element) {
-      const emergencyBanner = document.querySelector('.fixed.top-0.z-50')
+      // Only subtract the header height for scroll offset, and add 32px to bring section higher
       const header = document.querySelector('header')
-      const emergencyBannerHeight = emergencyBanner ? emergencyBanner.offsetHeight : 0
       const headerHeight = header ? header.offsetHeight : 0
-      const totalOffset = emergencyBannerHeight + headerHeight
       const elementRect = element.getBoundingClientRect()
       const scrollY = window.scrollY || window.pageYOffset
-      const targetY = elementRect.top + scrollY - totalOffset
+      const targetY = elementRect.top + scrollY - headerHeight + 140
       window.scrollTo({
         top: targetY,
         behavior: 'smooth'
@@ -549,12 +547,11 @@ function App() {
       </section>
 
       {/* IMPROVED SERVICES SECTION */}
-      <section id="services" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section id="our-expert-services" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="container mx-auto px-4">
           {/* Section Header */}
           <div className="text-center mb-16">
             <h2 
-              id="our-expert-services"
               data-animate
               className="animate-fade-in-up text-4xl md:text-5xl font-bold text-gray-800 mb-6"
             >
